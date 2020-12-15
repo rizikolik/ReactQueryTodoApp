@@ -18,7 +18,6 @@ export const firestore = firebase.firestore();
 
 export const collectionRef = firestore.collection('todos');
 export const addDocumentsToCollection = async data => {
-  console.log(data);
   const collectionRef = firestore.collection('todos');
   const batch = firestore.batch();
   const docRef = collectionRef.doc();
@@ -27,4 +26,14 @@ export const addDocumentsToCollection = async data => {
   console.log(batch);
 
   return await batch.commit();
+};
+export const getTodos = () => {
+  return firestore
+    .collection('todos')
+    .get()
+    .then(querySnapshot => {
+      return querySnapshot.docs.map(doc => {
+        return doc.data();
+      });
+    });
 };
