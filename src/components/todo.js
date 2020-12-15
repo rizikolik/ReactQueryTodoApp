@@ -34,14 +34,8 @@ function Todo() {
         <React.Fragment>
           {data.map(data => {
             return (
-              <div
-                style={{
-                  textAlign: 'left',
-                  display: 'flex',
-                  flexDirection: 'row',
-                }}
-              >
-                <p>{data.name} </p>
+              <div>
+                <span>{data.name} </span>
                 <input type='checkbox' defaultValue={data.completed} />
               </div>
             );
