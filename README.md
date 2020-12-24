@@ -2,6 +2,6 @@
 
 ## Stack :
 
-- React(Latest Version)
+- React Hooks
 - React Query
-- MongoDB Atlas for Storing Data
+- Firestore for Database
