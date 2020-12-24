@@ -35,10 +35,19 @@ export const TodoItem = ({id, name, completed}) => {
   };
 
   return (
-    <li>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'row',
+        padding: '10px',
+        width: '100px',
+        listStyle: 'none',
+      }}
+    >
       <span>{name}</span>
+
       <input type='checkbox' onChange={onCheck} checked={!!completed} />
       <button onClick={remove}>Delete</button>
-    </li>
+    </div>
   );
 };

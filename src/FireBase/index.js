@@ -44,22 +44,8 @@ export const updateTodo = async data => {
     .collection('todos')
     .doc(data.id)
     .update({completed: data.fields.completed});
-
-  /*.then(querySnapshot => {
-      return querySnapshot.docs.map(doc => {
-        console.log(doc.data);
-        return doc.data();
-      });
-    });*/
 };
 //const res = await db.collection('cities').doc('LA').set(data);
-export const deleteTodo = () => {
-  return firestore
-    .collection('todos')
-    .get()
-    .then(querySnapshot => {
-      return querySnapshot.docs.map(doc => {
-        return doc.data();
-      });
-    });
+export const deleteTodo = id => {
+  firestore.collection('todos').doc(id).delete();
 };
