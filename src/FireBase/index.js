@@ -37,3 +37,23 @@ export const getTodos = () => {
       });
     });
 };
+export const updateTodo = () => {
+  return firestore
+    .collection('todos')
+    .get()
+    .then(querySnapshot => {
+      return querySnapshot.docs.map(doc => {
+        return doc.data();
+      });
+    });
+};
+export const deleteTodo = () => {
+  return firestore
+    .collection('todos')
+    .get()
+    .then(querySnapshot => {
+      return querySnapshot.docs.map(doc => {
+        return doc.data();
+      });
+    });
+};
