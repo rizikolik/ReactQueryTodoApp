@@ -18,6 +18,7 @@ export const ListTodos = ({id}) => {
         {data.map((data, key) => {
           return (
             <TodoItem
+              key={key}
               name={data.name}
               completed={data.completed}
               id={data.id}

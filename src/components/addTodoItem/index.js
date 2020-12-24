@@ -8,7 +8,7 @@ function AddTodos() {
     onSuccess: () => queryCache.invalidateQueries('todos'),
   });
   const handleAdd = () => {
-    mutateAdd({name: inputRef.current.value});
+    mutateAdd({name: inputRef.current.value, completed: false});
     inputRef.current.value = '';
   };
 

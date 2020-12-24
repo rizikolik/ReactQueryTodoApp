@@ -15,19 +15,7 @@ export const TodoItem = ({id, name, completed}) => {
       const previousQuery = queryCache.getQueryData('todos');
       queryCache.setQueryData('todos', oldQuery => {
         return oldQuery.map(group => {
-          return {
-            ...group,
-            records: group.records.map(record => {
-              if (record.id === newTodo.id) {
-                return {
-                  ...record,
-                  fields: {...record.fields, ...newTodo.fields},
-                };
-              } else {
-                return record;
-              }
-            }),
-          };
+          return group;
         });
       });
       return () => queryCache.setQueryData('todos', previousQuery);

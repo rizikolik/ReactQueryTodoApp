@@ -33,20 +33,26 @@ export const getTodos = () => {
     .get()
     .then(querySnapshot => {
       return querySnapshot.docs.map(doc => {
-        return doc.data();
+        let data = doc.data();
+        return {id: doc.id, name: data.name, completed: data.completed};
       });
     });
 };
-export const updateTodo = () => {
-  return firestore
+export const updateTodo = async data => {
+  console.log(data.id, data);
+  firestore
     .collection('todos')
-    .get()
-    .then(querySnapshot => {
+    .doc(data.id)
+    .update({completed: data.fields.completed});
+
+  /*.then(querySnapshot => {
       return querySnapshot.docs.map(doc => {
+        console.log(doc.data);
         return doc.data();
       });
-    });
+    });*/
 };
+//const res = await db.collection('cities').doc('LA').set(data);
 export const deleteTodo = () => {
   return firestore
     .collection('todos')
